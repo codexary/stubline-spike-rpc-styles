@@ -1,0 +1,9 @@
+syntax = "proto3";
+package stubline.spike.holds.v1;
+option java_package = "com.elsworne.stubline.spike.rpcstyles.proto";
+option java_multiple_files = true;
+service Holds { rpc Hold(SeatRequest) returns (HoldReply); rpc Release(SeatRequest) returns (HoldReply); rpc List(Empty) returns (HoldList); }
+message Empty {}
+message SeatRequest { string seat = 1; }
+message HoldReply { bool changed = 1; }
+message HoldList { repeated string seats = 1; }
